@@ -34,9 +34,9 @@ target/
 .project
 .settings/org.eclipse.buildship.core.prefs
 .vscode
-/gradlew
 /gradlew.bat
 .todo
 *.properties
 notifications/
 .DS_Store
+lombok.config
