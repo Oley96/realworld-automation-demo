@@ -24,6 +24,10 @@ commands syntax:
 ```
  ./gradlew clean test
 ```
+- **remote run (UI + API) example with specific browser**
+```
+ ./gradlew clean -Dlaunch=chrome.remote test
+```
 - **local run of UI tests with specific browser and parallelism**
 ```
  ./gradlew clean -Dthreads=2 -Dlaunch=chrome.local ui
