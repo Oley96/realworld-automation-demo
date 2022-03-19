@@ -1,7 +1,6 @@
-## Test automation demo for https://demo.realworld.io
+#### Test automation demo for https://demo.realworld.io
 
-## Project stack:
-______________________
+## Project stack
 - **Gradle project**
 - **Selenide as Web automation framework**
 - **Rest Assured as API automation framework**
@@ -20,7 +19,6 @@ ______________________
 - should be renamed and filled property files (see resources) 
 
 ## Run tests from cli
-___
 commands syntax:
 - **local run (UI + API) example (Chrome browser as default and without parallelism)**
 ```
@@ -50,7 +48,6 @@ commands syntax:
 ```
 
 ## Generate Allure report
-___
 - **generate report after full test run**
 ```
  ./gradlew allureReport
