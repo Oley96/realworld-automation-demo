@@ -15,44 +15,44 @@
 - Java 11
 
 #### Import project (is optional)
-- should be imported as Gradle project with using Gradle wrapper
-- should be renamed and filled property files (see resources) 
+- Should be imported as Gradle project with using Gradle wrapper
+- Should be renamed and filled property files (see resources) 
 
 ## Run tests from cli
-commands syntax:
-- **local run (UI + API) example (Chrome browser as default and without parallelism)**
+Commands syntax:
+- **Local run (UI + API) example (Chrome browser as default and without parallelism)**
 ```
  ./gradlew clean test
 ```
-- **remote run (UI + API) example with specific browser**
+- **Remote run (UI + API) example with specific browser**
 ```
  ./gradlew clean -Dlaunch=chrome.remote test
 ```
-- **local run of UI tests with specific browser and parallelism**
+- **Local run of UI tests with specific browser and parallelism**
 ```
  ./gradlew clean -Dthreads=2 -Dlaunch=chrome.local ui
 ```
 ```
  ./gradlew clean -Pthread=2 -Dlaunch=firefox.local ui
 ```
-- **remote run of UI test with specific browser and parallelism**
+- **Remote run of UI test with specific browser and parallelism**
 ```
  ./gradlew clean -Pthread=2 -Dlaunch=chrome.remote ui
 ```
 ```
  ./gradlew clean -Pthread=2 -Dlaunch=firefox.remote ui
 ```
-- **run of API test**
+- **Run of API test**
 ```
  ./gradlew clean api
 ```
 
 ## Generate Allure report
-- **generate report after full test run**
+- **Generate report after full test run**
 ```
  ./gradlew allureReport
 ```
-- **then run Allure web service**
+- **Then run Allure web service**
 ```
  ./gradlew allureServe
 ```
