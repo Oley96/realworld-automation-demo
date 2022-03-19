@@ -1,0 +1,78 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.9.6'
+    id 'io.freefair.lombok' version '4.1.6'
+    id "com.adarshr.test-logger" version "2.1.1"
+}
+
+group 'io.demo.realworld'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    selenideVersion = "5.25.0"
+    junitVersion = "5.8.0"
+    allureVersion = "2.14.0"
+    javaOwnerVersion = "1.0.12"
+    restAssuredVerison = "4.3.1"
+    assertJVersion = "3.19.0"
+    jacksonVersion = "2.12.5"
+    fakerVersion = "1.0.2"
+    slf4jVersion = "1.7.29"
+}
+
+dependencies {
+    implementation(
+//            "org.aspectj:aspectjweaver:1.9.6",
+            "com.codeborne:selenide:$selenideVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "io.rest-assured:rest-assured:$restAssuredVerison",
+            "org.aeonbits.owner:owner:$javaOwnerVersion",
+            "org.assertj:assertj-core:$assertJVersion",
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion",
+            "com.github.javafaker:javafaker:$fakerVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion"
+    )
+    testImplementation(
+            "org.junit.jupiter:junit-jupiter:$junitVersion",
+    )
+}
+
+
+allure {
+    version = "$allureVersion"
+    autoconfigure = true
+    aspectjweaver = true
+
+    useJUnit5 {
+        version = "$allureVersion"
+    }
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    if (System.getProperty("threads") != null) {
+        systemProperties += [
+                'junit.jupiter.execution.parallel.enabled'                 : true,
+                'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
+                'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
+                'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+                'junit.jupiter.execution.parallel.config.fixed.parallelism': System.getProperty("threads").toInteger()
+        ]
+    }
+
+    testLogging {
+        lifecycle {
+            showStandardStreams true
+            events "passed", "failed"
+            exceptionFormat "short"
+            displayGranularity 4
+        }
+    }
+}
