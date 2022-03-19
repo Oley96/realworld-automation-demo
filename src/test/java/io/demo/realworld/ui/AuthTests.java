@@ -59,7 +59,7 @@ class AuthTests extends TestBase {
 
     @Test
     @WithLogin
-    @Tags({@Tag("api"), @Tag("UI")})
+    @Tag("UI")
     @DisplayName("login with via API")
     void shouldLoginViaAPI() {
         homePage.open().getNavBar().checkUsernameEquals("oleynik96");

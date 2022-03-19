@@ -20,24 +20,29 @@
 #### Run tests from cli
 
 commands syntax:
-- **local run example (Chrome browser as default and without parallelism)**
+- **local run (UI + API) example (Chrome browser as default and without parallelism)**
 ```
  ./gradlew clean test
 ```
-- **local run with specific browser and parallelism**
+- **local run of UI tests with specific browser and parallelism**
 ```
- ./gradlew clean -Dthreads=2 -Dlaunch=chrome.local
-```
-```
- ./gradlew clean -Pthread=2 -Dlaunch=firefox.local
-```
-- **remote run with specific browser and parallelism**
-```
- ./gradlew clean -Pthread=2 -Dlaunch=chrome.remote
+ ./gradlew clean -Dthreads=2 -Dlaunch=chrome.local ui
 ```
 ```
- ./gradlew clean -Pthread=2 -Dlaunch=firefox.local
+ ./gradlew clean -Pthread=2 -Dlaunch=firefox.local ui
 ```
+- **remote run of UI test with specific browser and parallelism**
+```
+ ./gradlew clean -Pthread=2 -Dlaunch=chrome.remote ui
+```
+```
+ ./gradlew clean -Pthread=2 -Dlaunch=firefox.remote ui
+```
+- **run of API test**
+```
+ ./gradlew clean api
+```
+
 #### Generate Allure report
 - **generate report after full test run**
 ```

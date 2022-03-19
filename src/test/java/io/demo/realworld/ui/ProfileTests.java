@@ -28,7 +28,7 @@ class ProfileTests extends TestBase {
 
     @Test
     @WithLogin
-    @Tags({@Tag("api"), @Tag("UI")})
+    @Tag("UI")
     @DisplayName("edit profile. change bio")
     void shouldEditProfile() {
         UpdateUser request = UpdateUser.builder()

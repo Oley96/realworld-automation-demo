@@ -57,6 +57,7 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
 
+
     if (System.getProperty("threads") != null) {
         systemProperties += [
                 'junit.jupiter.execution.parallel.enabled'                 : true,
@@ -74,5 +75,18 @@ tasks.withType(Test) {
             exceptionFormat "short"
             displayGranularity 4
         }
+    }
+}
+
+task ui(type: Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform {
+        includeTags 'UI'
+    }
+}
+
+task api(type: Test) {
+    useJUnitPlatform {
+        includeTags 'api'
     }
 }
