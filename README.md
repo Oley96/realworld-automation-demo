@@ -1,4 +1,5 @@
-# Test automation demo for https://demo.realworld.io
+## Test automation demo for https://demo.realworld.io
+
 ## Project stack:
 ___
 - **Gradle project**
