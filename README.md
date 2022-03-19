@@ -1,5 +1,6 @@
-# demo.realworld.io
-#### Project stack :
+# Test automation demo for https://demo.realworld.io
+## Project stack:
+___
 - **Gradle project**
 - **Selenide as Web automation framework**
 - **Rest Assured as API automation framework**
@@ -17,8 +18,8 @@
 - should be imported as Gradle project with using Gradle wrapper
 - should be renamed and filled property files (see resources) 
 
-#### Run tests from cli
-
+## Run tests from cli
+___
 commands syntax:
 - **local run (UI + API) example (Chrome browser as default and without parallelism)**
 ```
@@ -47,7 +48,8 @@ commands syntax:
  ./gradlew clean api
 ```
 
-#### Generate Allure report
+## Generate Allure report
+___
 - **generate report after full test run**
 ```
  ./gradlew allureReport
