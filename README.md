@@ -1,7 +1,7 @@
 ## Test automation demo for https://demo.realworld.io
 
 ## Project stack:
-___
+______________________
 - **Gradle project**
 - **Selenide as Web automation framework**
 - **Rest Assured as API automation framework**
