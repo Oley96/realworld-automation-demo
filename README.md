@@ -1,11 +1,12 @@
-
 # demo.realworld.io
 #### Project stack :
 - **Gradle project**
 - **Selenide as Web automation framework**
+- **Rest Assured as API automation framework**
 - **JUnit5 as test runner xUnit framework**
 - **Allure as test reporting**
 - **JavaOwner for config**
+- **Faker for generating random sequences**
 
 
 #### Required environment
