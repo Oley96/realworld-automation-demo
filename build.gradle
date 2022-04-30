@@ -26,7 +26,6 @@ ext {
 
 dependencies {
     implementation(
-//            "org.aspectj:aspectjweaver:1.9.6",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.rest-assured:rest-assured:$restAssuredVerison",

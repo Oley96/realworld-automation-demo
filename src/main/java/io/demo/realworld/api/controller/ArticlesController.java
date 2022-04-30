@@ -8,7 +8,6 @@ import io.demo.realworld.model.response.Article;
 import io.qameta.allure.Step;
 
 public class ArticlesController extends ApiController {
-    private static final String ARTICLE_WRAPPER_KEY = "article";
 
     public ArticlesController(ApiConfig config) {
         super(config);
@@ -16,14 +15,14 @@ public class ArticlesController extends ApiController {
 
     @Step("Create article")
     public Article createArticle(CreateArticle payload, StatusCode statusCode) {
-        requestSpecBuilder.addHeaders(getAuthHeader()).setBody((wrapRequestPayload(ARTICLE_WRAPPER_KEY, payload)));
+        requestSpecBuilder.addHeaders(getAuthHeader()).setBody(payload);
         responseSpecBuilder.expectStatusCode(statusCode.getCode());
 
         return post(Endpoints.CREATE_ARTICLE.getPath())
                 .then()
                 .extract().body()
                 .jsonPath()
-                .getObject(ARTICLE_WRAPPER_KEY, Article.class);
+                .getObject("", Article.class);
     }
 
     @Step("Get article by slug {0}")
@@ -35,20 +34,20 @@ public class ArticlesController extends ApiController {
                 .then()
                 .extract().body()
                 .jsonPath()
-                .getObject(ARTICLE_WRAPPER_KEY, Article.class);
+                .getObject("", Article.class);
     }
 
     @Step("Update article by slug {0}")
     public Article updateArticle(String slug, CreateArticle payload, StatusCode statusCode) {
         requestSpecBuilder.addHeaders(getAuthHeader()).addPathParam("slug", slug)
-                .setBody(wrapRequestPayload(ARTICLE_WRAPPER_KEY, payload));
+                .setBody(payload);
         responseSpecBuilder.expectStatusCode(statusCode.getCode());
 
         return put(Endpoints.UPDATE_ARTICLE.getPath())
                 .then()
                 .extract().body()
                 .jsonPath()
-                .getObject(ARTICLE_WRAPPER_KEY, Article.class);
+                .getObject("", Article.class);
     }
 
     @Step("Delete article by slug {0}")

@@ -8,10 +8,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+
 import static io.demo.realworld.api.client.ApiClient.api;
 import static io.demo.realworld.data.TestData.getFaker;
 import static io.demo.realworld.data.TestData.prepareRandomArticle;
-import static java.util.Collections.emptyMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Owner("oleynik")
@@ -75,8 +76,8 @@ class ArticlesTests {
         var newArticle = api().articles().createArticle(prepareRandomArticle(), StatusCode.OK);
         api().articles().deleteArticle(newArticle.getSlug(), StatusCode.NO_CONTENT);
 
-        var actualArticle = api().articles().getArticle(newArticle.getSlug(), StatusCode.OK);
+        var article = api().articles().getArticle(newArticle.getSlug(), StatusCode.NOT_FOUND);
 
-        assertEquals(emptyMap(), actualArticle.getAuthor());
+        assertEquals(Collections.emptyMap(), article.getAuthor());
     }
 }

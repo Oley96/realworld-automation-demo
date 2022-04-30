@@ -8,7 +8,6 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 public class ProfileController extends ApiController {
-    private static final String PROFILE_WRAPPER_KEY = "user";
 
     public ProfileController(ApiConfig config) {
         super(config);
@@ -24,7 +23,7 @@ public class ProfileController extends ApiController {
 
     @Step("Update user info")
     public void updateProfile(UpdateUser payload, StatusCode statusCode) {
-        requestSpecBuilder.addHeaders(getAuthHeader()).setBody(wrapRequestPayload(PROFILE_WRAPPER_KEY, payload));
+        requestSpecBuilder.addHeaders(getAuthHeader()).setBody(payload);
         responseSpecBuilder.expectStatusCode(statusCode.getCode());
 
         put(Endpoints.UPDATE_USER_PROFILE.getPath());

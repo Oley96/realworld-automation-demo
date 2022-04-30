@@ -9,8 +9,6 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 public class AuthController extends ApiController {
-    private static final String AUTH_WRAPPER_KEY = "user";
-
 
     public AuthController(ApiConfig config) {
         super(config);
@@ -18,7 +16,7 @@ public class AuthController extends ApiController {
 
     @Step("Login user")
     public Response login(LoginUser payload, StatusCode statusCode) {
-        requestSpecBuilder.setBody(wrapRequestPayload(AUTH_WRAPPER_KEY, payload));
+        requestSpecBuilder.setBody(payload);
         responseSpecBuilder.expectStatusCode(statusCode.getCode());
 
         var response = post(Endpoints.LOGIN_USER.getPath());

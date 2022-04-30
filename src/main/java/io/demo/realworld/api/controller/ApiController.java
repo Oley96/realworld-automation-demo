@@ -71,24 +71,4 @@ public class ApiController {
                 .extract()
                 .response();
     }
-
-    // @formatter:off
-    /**
-     * given JSON payload:
-     * {
-     *     "title": "Hello World"
-     * }
-     * @param payloadWrapperKey key to wrap request payload. For instance "article"
-     * @param payload JSON body to be wrapped
-     * @return wrapped payload:
-     * {
-     *     "article": {
-     *         "title": "Hello World"
-     *     }
-     * }
-     */
-    // @formatter:on
-    protected Map<String, Object> wrapRequestPayload(String payloadWrapperKey, Object payload) {
-        return Collections.singletonMap(payloadWrapperKey, payload);
-    }
 }
